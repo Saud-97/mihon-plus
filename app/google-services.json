@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "82031285239",
-    "project_id": "mihonapp",
-    "storage_bucket": "mihonapp.appspot.com"
+    "project_number": "531088642478",
+    "project_id": "mihon-plus",
+    "storage_bucket": "mihon-plus.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:82031285239:android:336ed6dceef55c357594f2",
+        "mobilesdk_app_id": "1:531088642478:android:3df49d0b14373e7ea6383f",
         "android_client_info": {
-          "package_name": "app.mihon"
+          "package_name": "app.mihon.plus"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDTvOxBQnuXADx5isKxoynPG0nlAO8bQbk"
+          "current_key": "AIzaSyAY5tHliB7ifEF911KpusmqWARLMNnnjHE"
         }
       ],
       "services": {
@@ -26,15 +26,15 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:82031285239:android:b7440cbdd0d33c9d7594f2",
+        "mobilesdk_app_id": "1:531088642478:android:5635d76785f90635a6383f",
         "android_client_info": {
-          "package_name": "app.mihon.debug"
+          "package_name": "app.mihon.plus.dev"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDTvOxBQnuXADx5isKxoynPG0nlAO8bQbk"
+          "current_key": "AIzaSyAY5tHliB7ifEF911KpusmqWARLMNnnjHE"
         }
       ],
       "services": {

@@ -1,10 +1,9 @@
 <div align="center">
-
-<a href="https://mihon.app">
-    <img src="./.github/assets/logo.png" alt="Mihon logo" title="Mihon logo" width="80"/>
+<a>
+    <img src="./.github/assets/logo.svg" alt="Mihon Plus logo" title="Mihon Plus logo" width="128"/>
 </a>
 
-# Mihon [App](#)
+# Mihon+ [App](#)
 
 ### Full-featured reader
 Discover and read manga, webtoons, comics, and more – easier than ever on your Android device.
@@ -12,16 +11,17 @@ Discover and read manga, webtoons, comics, and more – easier than ever on your
 [![Discord server](https://img.shields.io/discord/1195734228319617024.svg?label=&labelColor=6A7EC2&color=7389D8&logo=discord&logoColor=FFFFFF)](https://discord.gg/mihon)
 [![GitHub downloads](https://img.shields.io/github/downloads/mihonapp/mihon/total?label=downloads&labelColor=27303D&color=0D1117&logo=github&logoColor=FFFFFF&style=flat)](https://mihon.app/download)
 
-[![CI](https://img.shields.io/github/actions/workflow/status/mihonapp/mihon/build.yml?labelColor=27303D)](https://github.com/mihonapp/mihon/actions/workflows/build_push.yml)
-[![License: Apache-2.0](https://img.shields.io/github/license/mihonapp/mihon?labelColor=27303D&color=0877d2)](/LICENSE)
+[![CI](https://img.shields.io/github/actions/workflow/status/Saud-97/mihon-plus/build.yml?labelColor=27303D)](https://github.com/Saud-97/mihon-plus/actions/workflows/build_push.yml)
+[![License: Apache-2.0](https://img.shields.io/github/license/Saud-97/mihon-plus?labelColor=27303D&color=0877d2)](/LICENSE)
 [![Translation status](https://img.shields.io/weblate/progress/mihon?labelColor=27303D&color=946300)](https://hosted.weblate.org/engage/mihon/)
 
 ## Download
 
-[![Mihon Stable](https://img.shields.io/github/release/mihonapp/mihon.svg?maxAge=3600&label=Stable&labelColor=06599d&color=043b69)](https://mihon.app/download)
-[![Mihon Beta](https://img.shields.io/github/v/release/mihonapp/mihon-preview.svg?maxAge=3600&label=Beta&labelColor=2c2c47&color=1c1c39)](https://mihon.app/download)
+[![Mihon+ Stable](https://img.shields.io/github/release/Saud-97/mihon-plus.svg?maxAge=3600&label=Stable&labelColor=06599d&color=043b69)](https://github.com/Saud-97/mihon-plus/releases/latest)
 
 *Requires Android 8.0 or higher.*
+
+⭐ Give the project a star if you liked it
 
 ## Features
 

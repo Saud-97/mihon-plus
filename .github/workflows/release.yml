@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   get_tag:
-    if: github.repository == 'mihonapp/mihon'
+    if: github.repository == 'Saud-97/mihon-plus'
     name: Extract tag name
     runs-on: 'ubuntu-24.04'
     outputs:
@@ -25,7 +25,7 @@ jobs:
         run: echo "tag=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_OUTPUT
 
   build:
-    if: github.repository == 'mihonapp/mihon'
+    if: github.repository == 'Saud-97/mihon-plus'
     name: Build
     runs-on: 'ubuntu-24.04'
     needs: get_tag
@@ -73,7 +73,7 @@ jobs:
             mihon-x86_64-${{ needs.get_tag.outputs.tag }}.apk
 
   build_foss:
-    if: github.repository == 'mihonapp/mihon'
+    if: github.repository == 'Saud-97/mihon-plus'
     name: Build (FOSS)
     runs-on: ubuntu-24.04
     needs: get_tag
@@ -114,7 +114,7 @@ jobs:
           path: mihon-${{ needs.get_tag.outputs.tag }}-foss.apk
 
   release:
-    if: github.repository == 'mihonapp/mihon'
+    if: github.repository == 'Saud-97/mihon-plus'
     name: Create GitHub Release
     runs-on: ubuntu-24.04
     needs: [get_tag, build, build_foss]
@@ -137,11 +137,9 @@ jobs:
         uses: softprops/action-gh-release@718ea10b132b3b2eba29c1007bb80653f286566b # v3.0.1
         with:
           tag_name: ${{ needs.get_tag.outputs.tag }}
-          name: Mihon ${{ needs.get_tag.outputs.tag }}
+          name: Mihon+ ${{ needs.get_tag.outputs.tag }}
           body: |
-            Consider supporting the development on [Patreon](https://www.patreon.com/mihon/membership) or [OpenCollective](https://opencollective.com/mihon/contribute) to keep Mihon improving!
-
-            Check out the [past release notes](https://github.com/mihonapp/mihon/releases) if you're upgrading from an earlier version.
+            Check out the [past release notes](https://github.com/Saud-97/mihon-plus/releases) if you're upgrading from an earlier version.
 
             <!-->
 

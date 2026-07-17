@@ -1,9 +1,7 @@
 package eu.kanade.presentation.more
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -16,9 +14,7 @@ import androidx.compose.ui.unit.dp
 import eu.kanade.tachiyomi.R
 
 @Composable
-fun LogoHeader(
-    iconPadding: PaddingValues = PaddingValues(),
-) {
+fun LogoHeader() {
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -27,9 +23,7 @@ fun LogoHeader(
             painter = painterResource(R.drawable.ic_mihon),
             contentDescription = null,
             tint = MaterialTheme.colorScheme.onSurface,
-            modifier = Modifier
-                .padding(iconPadding)
-                .size(64.dp),
+            modifier = Modifier.size(128.dp),
         )
 
         HorizontalDivider()

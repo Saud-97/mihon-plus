@@ -3,7 +3,6 @@ package eu.kanade.presentation.more.settings.screen.about
 import android.content.Context
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -63,6 +62,7 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 
 object AboutScreen : Screen() {
+    private fun readResolve(): Any = AboutScreen
 
     @Composable
     override fun Content() {
@@ -86,9 +86,7 @@ object AboutScreen : Screen() {
                 contentPadding = contentPadding,
             ) {
                 item {
-                    LogoHeader(
-                        iconPadding = PaddingValues(vertical = 56.dp),
-                    )
+                    LogoHeader()
                 }
 
                 item {
