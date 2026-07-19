@@ -9,7 +9,7 @@
 Discover and read manga, webtoons, comics, and more – easier than ever on your Android device.
 
 [![Discord server](https://img.shields.io/discord/1195734228319617024.svg?label=&labelColor=6A7EC2&color=7389D8&logo=discord&logoColor=FFFFFF)](https://discord.gg/mihon)
-[![GitHub downloads](https://img.shields.io/github/downloads/mihonapp/mihon/total?label=downloads&labelColor=27303D&color=0D1117&logo=github&logoColor=FFFFFF&style=flat)](https://mihon.app/download)
+[![GitHub downloads](https://img.shields.io/github/downloads/Saud-97/mihon-plus/total?label=downloads&labelColor=27303D&color=0D1117&logo=github&logoColor=FFFFFF&style=flat)](https://github.com/Saud-97/mihon-plus/releases)
 
 [![CI](https://img.shields.io/github/actions/workflow/status/Saud-97/mihon-plus/build.yml?labelColor=27303D)](https://github.com/Saud-97/mihon-plus/actions/workflows/build_push.yml)
 [![License: Apache-2.0](https://img.shields.io/github/license/Saud-97/mihon-plus?labelColor=27303D&color=0877d2)](/LICENSE)
@@ -17,15 +17,56 @@ Discover and read manga, webtoons, comics, and more – easier than ever on your
 
 ## Download
 
-[![Mihon+ Stable](https://img.shields.io/github/release/Saud-97/mihon-plus.svg?maxAge=3600&label=Stable&labelColor=06599d&color=043b69)](https://github.com/Saud-97/mihon-plus/releases/latest)
+[![Mihon+ Stable](https://img.shields.io/github/release/Saud-97/mihon-plus.svg?maxAge=3600&label=Stable&labelColor=06599d&color=043b69)](https://github.com/Saud-97/mihon-plus/releases)
 
 *Requires Android 8.0 or higher.*
 
-⭐ Give the project a star if you liked it
+⭐ Give the project a star if you liked it ⭐
 
-## Features
+## Screenshots
+<p align="center">
+  <img src="./.github/assets/mihon-plus-screenshot-1.png" alt="Library" width="31%">
+  <img src="./.github/assets/mihon-plus-screenshot-2.png" alt="Manga Details" width="31%">
+  <img src="./.github/assets/mihon-plus-screenshot-3.png" alt="Reader" width="31%">
+</p>
 
-<div align="left">
+</div>
+
+## Why Mihon+?
+
+Mihon+ is a fork of Mihon that continues the ideas behind my previous fork, [TachiyomiS97](https://github.com/Saud-97/TachiyomiS97). It focuses on practical quality-of-life improvements, performance optimizations, and additional customization while staying close to upstream, making it easy to keep up with future Mihon releases.
+
+#### Highlights
+
+*  Built on the latest Mihon with regular upstream updates.
+*  Carefully selected quality-of-life improvements and extra customizations.
+*  Performance optimizations for a faster, smoother experience.
+
+## Planned Features
+
+### ⚡ Performance
+
+* Faster library updates.
+* Faster chapter downloads.
+
+### 🎨 Extra Customizations
+
+* Additional reader customization options, including extra side padding.
+* Expanded backup scheduling and retention options.
+* More customization throughout the app where it improves usability.
+
+### ✨ Quality of Life
+
+* Two-way reading progress synchronization through supported trackers.
+* Reduced confirmation dialogs for bulk operations.
+* Display the latest chapter number in Global Search.
+* Search manga directly using supported source URLs.
+
+
+<details> <summary>
+
+## Features inherited from Mihon
+</summary>
 
 * Local reading of content.
 * A configurable reader with multiple viewers, reading directions and other settings.
@@ -36,9 +77,17 @@ Discover and read manga, webtoons, comics, and more – easier than ever on your
 * Create backups locally to read offline or to your desired cloud service.
 * Plus much more...
 
-</div>
+</details>
 
-## Contributing
+### Credits
+
+Mihon+ is built upon Mihon. Thanks to the Mihon Open Source Project and all contributors whose work makes this fork possible.
+
+<a href="https://github.com/Saud-97/mihon-plus/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=Saud-97/mihon-plus" alt="Mihon app contributors" title="Mihon app contributors" width="800"/>
+</a>
+
+### Contributing
 
 [Code of conduct](./CODE_OF_CONDUCT.md) · [Contributing guide](./CONTRIBUTING.md)
 
@@ -47,19 +96,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Before reporting a new issue, take a look at the [FAQ](https://mihon.app/docs/faq/general), the [changelog](https://mihon.app/changelogs/) and the already opened [issues](https://github.com/mihonapp/mihon/issues); if you got any questions, join our [Discord server](https://discord.gg/mihon).
 
 
-### Repositories
 
-[mihonapp/website](https://github.com/mihonapp/website/)
-
-[mihonapp/bitmap.kt](https://github.com/mihonapp/bitmap.kt/)
-
-### Credits
-
-Thank you to all the people who have contributed!
-
-<a href="https://github.com/mihonapp/mihon/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=mihonapp/mihon" alt="Mihon app contributors" title="Mihon app contributors" width="800"/>
-</a>
 
 ### Disclaimer
 
@@ -84,4 +121,3 @@ See the License for the specific language governing permissions and
 limitations under the License.
 </pre>
 
-</div>
