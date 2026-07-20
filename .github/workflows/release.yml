@@ -18,11 +18,16 @@ jobs:
     runs-on: 'ubuntu-24.04'
     outputs:
       tag: ${{ steps.extract.outputs.tag }}
-
+      upstream: ${{ steps.extract.outputs.upstream }}
     steps:
       - name: Get tag name
         id: extract
-        run: echo "tag=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_OUTPUT
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          UPSTREAM="${TAG%.*}"
+
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "upstream=$UPSTREAM" >> "$GITHUB_OUTPUT"
 
   build:
     if: github.repository == 'Saud-97/mihon-plus'
@@ -64,13 +69,13 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: mihon
+          name: mihon-plus
           path: |
-            mihon-${{ needs.get_tag.outputs.tag }}.apk
-            mihon-arm64-v8a-${{ needs.get_tag.outputs.tag }}.apk
-            mihon-armeabi-v7a-${{ needs.get_tag.outputs.tag }}.apk
-            mihon-x86-${{ needs.get_tag.outputs.tag }}.apk
-            mihon-x86_64-${{ needs.get_tag.outputs.tag }}.apk
+            mihon-plus-${{ needs.get_tag.outputs.tag }}.apk
+            mihon-plus-arm64-v8a-${{ needs.get_tag.outputs.tag }}.apk
+            mihon-plus-armeabi-v7a-${{ needs.get_tag.outputs.tag }}.apk
+            mihon-plus-x86-${{ needs.get_tag.outputs.tag }}.apk
+            mihon-plus-x86_64-${{ needs.get_tag.outputs.tag }}.apk
 
   build_foss:
     if: github.repository == 'Saud-97/mihon-plus'
@@ -110,8 +115,8 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: mihon-foss
-          path: mihon-${{ needs.get_tag.outputs.tag }}-foss.apk
+          name: mihon-plus-foss
+          path: mihon-plus-${{ needs.get_tag.outputs.tag }}-foss.apk
 
   release:
     if: github.repository == 'Saud-97/mihon-plus'
@@ -120,6 +125,31 @@ jobs:
     needs: [get_tag, build, build_foss]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Find previous tag
+        id: previous
+        shell: bash
+        run: |
+          PREVIOUS_TAG=$(git tag --sort=-creatordate | sed -n '2p')
+
+          echo "tag=$PREVIOUS_TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Generate changelog
+        shell: bash
+        run: |
+          {
+            echo "CHANGELOG<<EOF"
+            git log \
+              --no-merges \
+              --pretty='* %s — @%an' \
+              "${{ steps.previous.outputs.tag }}..${{ needs.get_tag.outputs.tag }}"
+            echo EOF
+          } >> "$GITHUB_ENV"
+
       - name: Download all artifacts
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
@@ -130,8 +160,8 @@ jobs:
         with:
           failOnError: false
           name: |
-            mihon
-            mihon-foss
+            mihon-plus
+            mihon-plus-foss
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@718ea10b132b3b2eba29c1007bb80653f286566b # v3.0.1
@@ -139,24 +169,36 @@ jobs:
           tag_name: ${{ needs.get_tag.outputs.tag }}
           name: Mihon+ ${{ needs.get_tag.outputs.tag }}
           body: |
-            Check out the [past release notes](https://github.com/Saud-97/mihon-plus/releases) if you're upgrading from an earlier version.
+            ${{ env.CHANGELOG }}
 
-            <!-->
+            ## 🔄 Upstream
+            Updated with the latest changes from **Mihon ${{ needs.get_tag.outputs.upstream }}**.
+
+            ## ✨ New Features
+
+            ## ⚙️ Customizations
+
+            ## 🚀 Improvements
+
+            ## 🐛 Bug Fixes
 
 
 
-            <!-->
+            ---
+
+            **Full Changelog**
+            https://github.com/${{ github.repository }}/compare/${{ steps.previous.outputs.tag }}...${{ needs.get_tag.outputs.tag }}
 
             > [!TIP]
             >
-            > ### If you are unsure which version to download then go with `mihon-plus-${{ needs.get_tag.outputs.tag }}.apk`
+            > If you're unsure which APK to download, use **`mihon-plus-${{ needs.get_tag.outputs.tag }}.apk`**.
           files: |
-            mihon-${{ needs.get_tag.outputs.tag }}.apk
-            mihon-${{ needs.get_tag.outputs.tag }}-foss.apk
-            mihon-arm64-v8a-${{ needs.get_tag.outputs.tag }}.apk
-            mihon-armeabi-v7a-${{ needs.get_tag.outputs.tag }}.apk
-            mihon-x86-${{ needs.get_tag.outputs.tag }}.apk
-            mihon-x86_64-${{ needs.get_tag.outputs.tag }}.apk
+            mihon-plus-${{ needs.get_tag.outputs.tag }}.apk
+            mihon-plus-${{ needs.get_tag.outputs.tag }}-foss.apk
+            mihon-plus-arm64-v8a-${{ needs.get_tag.outputs.tag }}.apk
+            mihon-plus-armeabi-v7a-${{ needs.get_tag.outputs.tag }}.apk
+            mihon-plus-x86-${{ needs.get_tag.outputs.tag }}.apk
+            mihon-plus-x86_64-${{ needs.get_tag.outputs.tag }}.apk
           draft: true
           prerelease: false
           token: ${{ secrets.MIHON_BOT_TOKEN }}
